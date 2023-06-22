@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ArtBook</string>
+
+    <string name="button_add_art">Add art button</string>
+    <string name="art_name">Art Name</string>
+    <string name="artist_name">Artist Name</string>
+    <string name="art_year">Year</string>
+    <string name="art_image_description">Art image</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="save_art">Save</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_artist">Enter Artist</string>
+    <string name="enter_year">Enter Year</string>
+    <string name="search_image">Search Image</string>
+    <string name="image_from_api">Image from api</string>
+</resources>
