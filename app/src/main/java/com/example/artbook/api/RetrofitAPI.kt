@@ -1,5 +1,6 @@
 package com.example.artbook.api
 
+import com.example.artbook.model.ImageResponse
 import com.example.artbook.util.Util.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET

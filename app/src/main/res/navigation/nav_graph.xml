@@ -7,23 +7,34 @@
 
     <fragment
         android:id="@+id/artsFragment"
-        android:name="view.ArtsFragment"
+        android:name="com.example.artbook.view.ArtsFragment"
         android:label="fragment_arts"
-        tools:layout="@layout/fragment_arts" >
+        tools:layout="@layout/fragment_arts">
         <action
             android:id="@+id/action_artsFragment_to_artDetailsFragment"
             app:destination="@id/artDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/artDetailsFragment"
-        android:name="view.ArtDetailsFragment"
-        android:label="ArtDetailsFragment" >
+        android:name="com.example.artbook.view.ArtDetailsFragment"
+        android:label="ArtDetailsFragment">
         <action
             android:id="@+id/action_artDetailsFragment_to_imageApiFragment"
             app:destination="@id/imageApiFragment" />
+        <argument
+            android:name="art"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_artDetailsFragment_to_artsFragment"
+            app:destination="@id/artsFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/imageApiFragment"
-        android:name="view.ImageApiFragment"
-        android:label="ImageApiFragment" />
+        android:name="com.example.artbook.view.ImageApiFragment"
+        android:label="ImageApiFragment">
+        <action
+            android:id="@+id/action_imageApiFragment_to_artDetailsFragment"
+            app:destination="@id/artDetailsFragment" />
+    </fragment>
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.artbook.api
+package com.example.artbook.model
 
 data class ImageResponse(
     val hits: List<ImageResult>,

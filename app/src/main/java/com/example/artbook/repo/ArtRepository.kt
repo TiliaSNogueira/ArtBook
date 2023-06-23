@@ -1,7 +1,7 @@
 package com.example.artbook.repo
 
 import androidx.lifecycle.LiveData
-import com.example.artbook.api.ImageResponse
+import com.example.artbook.model.ImageResponse
 import com.example.artbook.api.RetrofitAPI
 import com.example.artbook.roomdb.Art
 import com.example.artbook.roomdb.ArtDao
