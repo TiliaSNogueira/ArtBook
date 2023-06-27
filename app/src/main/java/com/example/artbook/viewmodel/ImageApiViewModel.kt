@@ -21,9 +21,6 @@ class ImageApiViewModel @Inject constructor(
         get() = images
 
     private val selectedImage = MutableLiveData<String>()
-    val selectedImageUrl: LiveData<String>
-        get() = selectedImage
-
 
     fun setSelectedImage(url : String) {
         selectedImage.postValue(url)

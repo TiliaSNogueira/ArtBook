@@ -27,7 +27,7 @@ class ArtDetailsFragment @Inject constructor(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(requireActivity()).get(ArtDetailsViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity())[ArtDetailsViewModel::class.java]
         val binding = FragmentArtDetailsBinding.bind(view)
         fragmentArtDetailsBinding = binding
 
@@ -59,17 +59,13 @@ class ArtDetailsFragment @Inject constructor(
         val imageSelected = args.art
         fragmentArtDetailsBinding?.let {
             glide.load(imageSelected).into(it.artImageView)
+            viewModel.selectedImage(imageSelected)
         }
 
 
     }
 
     private fun subscribeToObservers() {
-//        viewModel.selectedImageUrl.observe(viewLifecycleOwner, Observer {
-//            fragmentArtDetailsBinding?.let{
-//                glide.load(it).into(it.artImageView)
-//            }
-//        })
 
         viewModel.insertArtMessage.observe(viewLifecycleOwner, Observer {
             when (it.status) {

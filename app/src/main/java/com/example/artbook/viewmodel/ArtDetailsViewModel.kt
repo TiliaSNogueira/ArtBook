@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.artbook.model.ImageResponse
 import com.example.artbook.repo.ArtRepositoryInterface
 import com.example.artbook.roomdb.Art
 import com.example.artbook.util.Resource
@@ -23,13 +22,6 @@ class ArtDetailsViewModel @Inject constructor(
 
 
     private val selectedImage = MutableLiveData<String>()
-    val selectedImageUrl: LiveData<String>
-        get() = selectedImage
-
-    private val images = MutableLiveData<Resource<ImageResponse>>()
-    val imageList: LiveData<Resource<ImageResponse>>
-        get() = images
-
 
     fun resetInsertArtMsg() {
         insertArtMsg = MutableLiveData<Resource<Art>>()
@@ -39,27 +31,14 @@ class ArtDetailsViewModel @Inject constructor(
         selectedImage.postValue(url)
     }
 
-
-
-    fun insertArt(art: Art) = viewModelScope.launch {
+    private fun insertArt(art: Art) = viewModelScope.launch {
         repository.insertArt(art)
-    }
-
-    fun searchImage(searchString: String) {
-        if (searchString.isEmpty()) {
-            return
-        }
-
-        images.value = Resource.loading(null)
-        viewModelScope.launch {
-            val response = repository.searchImage(searchString)
-            images.value = response
-        }
     }
 
     fun makeArt(name: String, artistName: String, year: String) {
         if (name.isEmpty() || artistName.isEmpty() || year.isEmpty()) {
-            insertArtMsg.postValue(Resource.error("Enter all information", null))
+            insertArtMsg.postValue(Resource.error("Enter name, artist and year", null))
+            return
         }
 
         val yearInt = try {
@@ -81,7 +60,7 @@ class ArtDetailsViewModel @Inject constructor(
         insertArtMsg.postValue(Resource.success(art))
     }
 
-    fun setSelectedImage(url : String) {
+    private fun setSelectedImage(url: String) {
         selectedImage.postValue(url)
     }
 
