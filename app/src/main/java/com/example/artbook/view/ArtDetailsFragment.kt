@@ -20,7 +20,7 @@ class ArtDetailsFragment @Inject constructor(
     val glide: RequestManager
 ) : Fragment(R.layout.fragment_art_details) {
 
-    private lateinit var viewModel: ArtDetailsViewModel
+      lateinit var viewModel: ArtDetailsViewModel
 
     private var fragmentArtDetailsBinding: FragmentArtDetailsBinding? = null
 
@@ -34,9 +34,9 @@ class ArtDetailsFragment @Inject constructor(
 
         subscribeToObservers()
         binding.artImageView.setOnClickListener {
-            //findNavController().navigate(ArtDetailsFragmentDirections.actionArtDetailsFragmentToImageApiFragment())
-            val action = ArtDetailsFragmentDirections.actionArtDetailsFragmentToImageApiFragment()
-            findNavController().navigate(action)
+           // findNavController().navigate(ArtDetailsFragmentDirections.actionArtDetailsFragmentToImageApiFragment())
+           val action = ArtDetailsFragmentDirections.actionArtDetailsFragmentToImageApiFragment()
+           findNavController().navigate(action)
         }
 
         val callback = object : OnBackPressedCallback(true) {

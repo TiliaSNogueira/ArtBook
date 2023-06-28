@@ -17,6 +17,8 @@ class ArtDetailsViewModel @Inject constructor(
 ) : ViewModel() {
 
     private var insertArtMsg = MutableLiveData<Resource<Art>>()
+
+    val artList = repository.getArt()
     val insertArtMessage: LiveData<Resource<Art>>
         get() = insertArtMsg
 
