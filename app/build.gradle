@@ -103,6 +103,9 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-contrib:3.4.0") {
         exclude group : "org.checkerframework", module : "checker"
     }
+
+    debugImplementation "androidx.test:monitor:1.6.0"
+
 }
 
 kapt {
