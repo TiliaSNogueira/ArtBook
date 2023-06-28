@@ -42,7 +42,7 @@ class ImageRecyclerAdapter @Inject constructor(
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         val imageView = holder.itemView.findViewById<ImageView>(R.id.singleArtImageView)
-        var url = images[position]
+        val url = images[position]
         holder.itemView.apply {
             glide.load(url).into(imageView)
             setOnClickListener {
